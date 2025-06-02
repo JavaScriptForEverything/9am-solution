@@ -1,0 +1,19 @@
+meta {
+  name: register
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{origin}}/api/auth/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username": "riajul3",
+    "password": "{{pass}}",
+    "shopnames": ["one1", "two1", "three1", "four1"]
+  }
+}
