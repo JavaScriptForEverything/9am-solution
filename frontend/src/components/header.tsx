@@ -2,11 +2,8 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 // import { ORIGIN } from '@/lib/config'
 import * as userReducer from '@/store/userReducer'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-
-const storedAuth = localStorage.getItem('authDataString');
-// const parsedAuth = storedAuth ? JSON.parse(storedAuth) : null;
 
 
 // src/components/Header.tsx
