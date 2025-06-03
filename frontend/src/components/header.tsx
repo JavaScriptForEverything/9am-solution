@@ -54,9 +54,9 @@ export default function Header() {
 				<div className={`${isOpen ? 'block' : 'hidden'} absolute top-10 right-0 w-40 bg-blue-50 `}>
 					<ul>
 						{user?.shopnames.map( shop => (
-							<Link onClick={closeHandler} key={shop} to={`http://${shop}.${hostname}?storedAuth=${storedAuth}`} >
+							<a onClick={closeHandler} key={shop} href={`http://${shop}.${hostname}`} >
 								<li className='px-2 py-1 border border-slate-300 hover:bg-blue-100 ' >{shop}</li>
-							</Link>
+							</a>
 						))}
 
 						<li onClick={logoutHandler} className='px-2 py-1 border border-slate-300 hover:bg-blue-100 ' >Logout</li>
