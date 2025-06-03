@@ -1,14 +1,8 @@
 import { 
-	GroupIcon, 
-	PortfolioIcon, 
 	SettingsIcon,
 	AccountIcon,
-	ServiceIcon,
-	NotificationIcon,
 	DashboardIcon,
 	LogoutIcon,
-	PageIcon,
-	MetadataIcon,
 
 } from '@/icons'
 

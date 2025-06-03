@@ -6,6 +6,7 @@ $ sudo systemctl start docker docker.socket
 
 $ cd clone https://github.com/JavaScriptForEverything/9am-solution.git
 $ cd backend
+$ mv .env.example .env
 $ docker compose up -d
 $ docker compose logs -f backend_svc
 
@@ -16,6 +17,8 @@ $ docker compose logs -f backend_svc
 ### Frontend
 ```
 $ cd frontend
+$ install
+$ mv .env.example .env
 
 $ yarn dev
 
