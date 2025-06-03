@@ -76,15 +76,6 @@ export const updateUserById:RequestHandler = catchAsync(async (req, res, next) =
 		const updatedUser = await User.findByIdAndUpdate(userId, filteredBody, { new: true })
 		if(!updatedUser) return next(appError('user update failed'))
 
-		if(req.body.avatar) {
-			req.body.avatar = user.avatar 	// add existing avatar, so that it can be deleted later
-
-			// delete old avatar if have
-			setTimeout(() => {
-				if(user.avatar?.secure_url) promisify(fileService.removeFile)(user.avatar.secure_url)
-			}, 1000)
-		}
-
 		const responseData: ResponseData<UserDocument> = {
 			status: 'success',
 			data: updatedUser
@@ -111,10 +102,6 @@ export const deleteUserById:RequestHandler = catchAsync(async (req, res, next) =
 	if(!user) return next(appError('user not found'))
 
 
-	// delete existing avatar if have
-	setTimeout(() => {
-		if(user.avatar?.secure_url) promisify(fileService.removeFile)(user.avatar.secure_url)
-	}, 1000)
 
 	// logout user
 	await tokenService.removeTokenFromCookie(req)
