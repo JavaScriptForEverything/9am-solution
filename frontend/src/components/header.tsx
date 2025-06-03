@@ -1,19 +1,37 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+// import { ORIGIN } from '@/lib/config'
 import * as userReducer from '@/store/userReducer'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+
+
+const storedAuth = localStorage.getItem('authDataString');
+// const parsedAuth = storedAuth ? JSON.parse(storedAuth) : null;
+
 
 // src/components/Header.tsx
 export default function Header() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
+	const [ isOpen, setIsOpen ] = useState(false)
 
 	const { user } = useAppSelector(state => state.user)
 
+	const url = new URL(location.href)
+	const hostname = url.host
+
+	const avatarClickHandler = () => {
+		setIsOpen( prev => !prev)
+	}
+	const closeHandler = () => setIsOpen(false)
+
 	const logoutHandler = () => {
 		dispatch(userReducer.logoutHandler())
+
 		setTimeout(() => {
+			closeHandler()
 			navigate('/login')
-		}, 1000)
+		}, 200)
 	}
 
   return (
@@ -30,14 +48,15 @@ export default function Header() {
 					src='/vite.svg'
 					width={24}
 					height={24}
-					className='object-cover'
+					className='object-cover peer'
+					onClick={avatarClickHandler}
 				/>
-				<div className='absolute top-10 right-0 w-40 bg-blue-50 '>
+				<div className={`${isOpen ? 'block' : 'hidden'} absolute top-10 right-0 w-40 bg-blue-50 `}>
 					<ul>
 						{user?.shopnames.map( shop => (
-							<a key={shop} href={`http://${shop}.localhost:5173`} target="_blank" rel="noopener noreferrer">
+							<Link onClick={closeHandler} key={shop} to={`http://${shop}.${hostname}?storedAuth=${storedAuth}`} >
 								<li className='px-2 py-1 border border-slate-300 hover:bg-blue-100 ' >{shop}</li>
-							</a>
+							</Link>
 						))}
 
 						<li onClick={logoutHandler} className='px-2 py-1 border border-slate-300 hover:bg-blue-100 ' >Logout</li>

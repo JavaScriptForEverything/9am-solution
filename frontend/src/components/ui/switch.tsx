@@ -1,9 +1,11 @@
 
+// interface Props extends React.ComponentProps<'input'> {
 interface Props {
 	checked: boolean,
 	onChange: (checked: boolean) => void
+	id?: string
 }
-export const Switch = ({ checked, onChange }: Props) => {
+export const Switch = ({ checked, onChange, id }: Props) => {
 
 	// return (
 	// 	<label htmlFor="hs-basic-usage" className="relative inline-block w-11 h-6 cursor-pointer">
@@ -19,12 +21,12 @@ export const Switch = ({ checked, onChange }: Props) => {
 
 	return (
 		<label
-			htmlFor="AcceptConditions"
-			className="relative block h-6 w-12 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-orange-500"
+			htmlFor={id}
+			className="cursor-pointer relative block h-6 w-12 rounded-full bg-gray-300 transition-colors [-webkit-tap-highlight-color:_transparent] has-checked:bg-orange-500"
 		>
 			<input 
 				type="checkbox" 
-				id="AcceptConditions" 
+				id={id}
 				className="peer sr-only" 
 				checked={checked}
 				onChange={(evt) => onChange(evt.target.checked)}

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button, Input } from '@/components/ui'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { LoadingIcon } from '@/icons'
@@ -147,6 +147,13 @@ const Register = () => {
 							)}
 						</Button>
           </form>
+
+					<div className="mt-6 text-slate-800">
+
+						<h2 className=' text-center'>Already Registerted? 
+								<Link to='/login' className='text-orange-500'> Login </Link>
+							here</h2>
+					</div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button, Input, Switch } from '@/components/ui'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { LoadingIcon } from '@/icons'
@@ -31,6 +31,13 @@ const Login = () => {
 	const [ fields, setFields] = useState<FormFields>(initialFields)
 	const [ fieldsError, setFieldsError] = useState<FormFields>(initialFields)
 	const [ isChecked, setIsChecked ] = useState(isRemembered)
+
+
+
+	const location = useLocation()
+	console.log(location.search)
+
+
 
 	useEffect(() => {
 		if(isAuthenticated) navigate('/dashboard')
@@ -138,8 +145,8 @@ const Login = () => {
 						))}
 
             <div className="mb-6 flex items-center gap-2">
-							<Switch checked={isChecked} onChange={switchChangeHandler} />
-              <label htmlFor="remember" className="text-sm text-gray-700">
+							<Switch id='remember' checked={isChecked} onChange={switchChangeHandler} />
+              <label htmlFor="remember" className="cursor-pointer text-sm text-gray-700">
                 Remember me
               </label>
             </div>
@@ -155,6 +162,13 @@ const Login = () => {
 						</Button>
 
           </form>
+
+					<div className="mt-6 text-slate-800">
+
+						<h2 className=' text-center'>Yaven Account? 
+								<Link to='/register' className='text-orange-500'> Register </Link>
+							here</h2>
+					</div>
         </div>
       </div>
     </div>

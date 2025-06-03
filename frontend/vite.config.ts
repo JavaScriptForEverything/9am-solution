@@ -23,12 +23,6 @@ export default defineConfig({
     allowedHosts: [
       'mydomain.com', 		// Add your custom host here
     ],
-		// proxy: {
-		// 	'/api': {
-		// 		target: 'http://localhost:5000', 	// Backend server URL
-		// 		changeOrigin: true,
-		// 	}
-		// }
   },
 	preview: {
     host: '0.0.0.0',
