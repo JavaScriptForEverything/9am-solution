@@ -7,6 +7,9 @@ export const allowedOrigins = [
 	'http://localhost:3000', 												// => Nextjs Frontend
 	'http://localhost:5173', 												// => Vite React
 
+	'http://157.173.218.4:3000',
+	'http://157.173.218.4:5173',
+
   /\.localhost:5173$/, 														// Allow all subdomains of localhost:5173
 
 	'http://mydomain.com:5173', 										// => DNS
