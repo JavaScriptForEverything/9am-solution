@@ -5,13 +5,13 @@ import os from 'os'
 import { DB } from '@/config/config'
 
 
-export const appLogs = (app: Application, PORT: number) => {
+export const appLogs = (app: Application, PORT: number, protocol: 'http' | 'https') => {
 
 	console.log('\nSERVER LOGS:\n')
-	console.log(`  ➜  LOCAL      : http://localhost:${PORT}`)
+	console.log(`  ➜  LOCAL      : ${protocol}://localhost:${PORT}`)
 
 	const networkInterfaces = getNetworkInterfaces()
-	networkInterfaces.forEach((ip) => console.log(`  ➜  DOCKER     : http://${ip}:${PORT}`))
+	networkInterfaces.forEach((ip) => console.log(`  ➜  DOCKER     : ${protocol}://${ip}:${PORT}`))
 
 	setTimeout(() => { 																								// to show latter after host logs
 		logDatabaseConnection() 																				// Log database connection details

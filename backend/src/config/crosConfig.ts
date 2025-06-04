@@ -12,8 +12,7 @@ export const allowedOrigins = [
 
   /\.localhost:5173$/, 														// Allow all subdomains of localhost:5173
 
-	'http://mydomain.com:5173', 										// => DNS
-	'http://mydomain.com', 													// => DNS Nginx
+	'https://9am-solution-n8qv.vercel.app',
 ]
 
 

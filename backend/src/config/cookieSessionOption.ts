@@ -11,4 +11,7 @@ export const cookieSessionOption = {
 	secure: NODE_ENV === 'production', 					
   sameSite: NODE_ENV === 'production' ? 'none' as const : 'lax' as const, 	// To send cookie with `sameSite='none'` secure must be true `secure: true`
 	// maxAge: 365 * 24 * 60 * 60 * 1000, 													// 1 year, and manage expiresIn via jwt only
+
+	// secure: true,
+  // sameSite: 'none' as const
 }

@@ -55,11 +55,12 @@ const Register = () => {
 				title: 'Registered',
 				message: 'your register successfull!!!',
 				autoClose: true,
+				closeTime: 1000
 			}))
 
 			setTimeout(() => {
 				navigate('/login')
-			}, 3000);
+			}, 1001);
 
 		}
 	},[status, message])

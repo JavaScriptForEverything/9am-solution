@@ -8,11 +8,12 @@ import { appLogs } from '@/lib/utils'
 import * as errorController from '@/controllers/errorController'
 
 const PORT = parseInt(process.env.PORT!) || 5000
+
 const httpServer = app.listen(PORT, async () => {
 	await dbConnect() 		// also add dotenv.config()
 	// logger.info(`server running on : ${server.origin}`)
 
-	appLogs(app, PORT)
+	appLogs(app, PORT, 'http')
 })
 
 errorController.promiseErrorHandler(httpServer) 	// put it very end
