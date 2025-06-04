@@ -12,7 +12,8 @@ export const allowedOrigins = [
 
   /\.localhost:5173$/, 														// Allow all subdomains of localhost:5173
 
-	'https://9am-solution-n8qv.vercel.app',
+	'https://9am-solution.vercel.app:5173',
+	'https://9am-solution.vercel.app',
 ]
 
 
